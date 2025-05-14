@@ -7,10 +7,10 @@ export const TELEGRAM_CHANNELS = [
   // Add more channels as needed
 ];
 
-export const MINI_APP_USERNAME = 'comodapp';
+export const MINI_APP_USERNAME = 'vistacomoda_bot';
 
 export const MINI_APP_CONFIG = {
-  shortName: 'comodapp',
-  url: 'https://t.me/vistacomoda_bot/comodapp',
-  botUsername: 'vistacomoda_bot'
+  title: 'Vista Comoda',
+  description: 'Официальное приложение Vista Comoda',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://comodapp.vercel.app',
 }; 
