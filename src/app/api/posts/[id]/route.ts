@@ -1,18 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getPost } from '@/services/database';
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
 export async function GET(
   request: NextRequest,
-  props: Props
+  context: { params: { id: string } }
 ) {
   try {
-    const post = await getPost(props.params.id);
+    const post = await getPost(context.params.id);
     
     if (!post) {
       return NextResponse.json(
