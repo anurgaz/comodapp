@@ -1,13 +1,19 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { Post } from '@/types/post';
 import { getPost } from '@/services/database';
 
+type RouteContext = {
+  params: {
+    id: string;
+  };
+};
+
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: RouteContext
 ) {
   try {
-    const post = await getPost(params.id);
+    const post = await getPost(context.params.id);
     
     if (!post) {
       return NextResponse.json(
