@@ -1,22 +1,26 @@
-import { NextResponse } from 'next/server';
-import { Bot } from 'grammy';
-import { processNewMessage } from '@/services/telegram';
+import { NextRequest, NextResponse } from 'next/server';
+import { createPost } from '@/services/database';
 
-const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const update = await request.json();
+    const body = await request.json();
     
-    if (update.channel_post) {
-      await processNewMessage(update.channel_post);
+    // Проверяем, что это сообщение из канала
+    if (!body.message?.text) {
+      return NextResponse.json({ status: 'ignored' });
     }
 
-    return NextResponse.json({ ok: true });
+    const text = body.message.text;
+    const photo = body.message.photo?.[0]?.file_id;
+    
+    // Создаем пост
+    await createPost(text, photo);
+
+    return NextResponse.json({ status: 'ok' });
   } catch (error) {
-    console.error('Ошибка при обработке webhook:', error);
+    console.error('Webhook error:', error);
     return NextResponse.json(
-      { error: 'Не удалось обработать webhook' },
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }

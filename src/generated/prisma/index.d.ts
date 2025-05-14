@@ -875,29 +875,15 @@ export namespace Prisma {
 
   export type AggregatePost = {
     _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
     _min: PostMinAggregateOutputType | null
     _max: PostMaxAggregateOutputType | null
-  }
-
-  export type PostAvgAggregateOutputType = {
-    messageId: number | null
-  }
-
-  export type PostSumAggregateOutputType = {
-    messageId: number | null
   }
 
   export type PostMinAggregateOutputType = {
     id: string | null
     title: string | null
-    subtitle: string | null
     body: string | null
-    imageUrl: string | null
-    publishedAt: Date | null
-    channelId: string | null
-    messageId: number | null
+    coverImage: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -905,12 +891,8 @@ export namespace Prisma {
   export type PostMaxAggregateOutputType = {
     id: string | null
     title: string | null
-    subtitle: string | null
     body: string | null
-    imageUrl: string | null
-    publishedAt: Date | null
-    channelId: string | null
-    messageId: number | null
+    coverImage: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -918,35 +900,19 @@ export namespace Prisma {
   export type PostCountAggregateOutputType = {
     id: number
     title: number
-    subtitle: number
     body: number
-    imageUrl: number
-    publishedAt: number
-    channelId: number
-    messageId: number
+    coverImage: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type PostAvgAggregateInputType = {
-    messageId?: true
-  }
-
-  export type PostSumAggregateInputType = {
-    messageId?: true
-  }
-
   export type PostMinAggregateInputType = {
     id?: true
     title?: true
-    subtitle?: true
     body?: true
-    imageUrl?: true
-    publishedAt?: true
-    channelId?: true
-    messageId?: true
+    coverImage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -954,12 +920,8 @@ export namespace Prisma {
   export type PostMaxAggregateInputType = {
     id?: true
     title?: true
-    subtitle?: true
     body?: true
-    imageUrl?: true
-    publishedAt?: true
-    channelId?: true
-    messageId?: true
+    coverImage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -967,12 +929,8 @@ export namespace Prisma {
   export type PostCountAggregateInputType = {
     id?: true
     title?: true
-    subtitle?: true
     body?: true
-    imageUrl?: true
-    publishedAt?: true
-    channelId?: true
-    messageId?: true
+    coverImage?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1016,18 +974,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: PostAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PostSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: PostMinAggregateInputType
@@ -1058,8 +1004,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PostCountAggregateInputType | true
-    _avg?: PostAvgAggregateInputType
-    _sum?: PostSumAggregateInputType
     _min?: PostMinAggregateInputType
     _max?: PostMaxAggregateInputType
   }
@@ -1067,17 +1011,11 @@ export namespace Prisma {
   export type PostGroupByOutputType = {
     id: string
     title: string
-    subtitle: string
     body: string
-    imageUrl: string | null
-    publishedAt: Date
-    channelId: string
-    messageId: number
+    coverImage: string | null
     createdAt: Date
     updatedAt: Date
     _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
     _min: PostMinAggregateOutputType | null
     _max: PostMaxAggregateOutputType | null
   }
@@ -1099,12 +1037,8 @@ export namespace Prisma {
   export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    subtitle?: boolean
     body?: boolean
-    imageUrl?: boolean
-    publishedAt?: boolean
-    channelId?: boolean
-    messageId?: boolean
+    coverImage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["post"]>
@@ -1112,12 +1046,8 @@ export namespace Prisma {
   export type PostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    subtitle?: boolean
     body?: boolean
-    imageUrl?: boolean
-    publishedAt?: boolean
-    channelId?: boolean
-    messageId?: boolean
+    coverImage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["post"]>
@@ -1125,12 +1055,8 @@ export namespace Prisma {
   export type PostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    subtitle?: boolean
     body?: boolean
-    imageUrl?: boolean
-    publishedAt?: boolean
-    channelId?: boolean
-    messageId?: boolean
+    coverImage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["post"]>
@@ -1138,17 +1064,13 @@ export namespace Prisma {
   export type PostSelectScalar = {
     id?: boolean
     title?: boolean
-    subtitle?: boolean
     body?: boolean
-    imageUrl?: boolean
-    publishedAt?: boolean
-    channelId?: boolean
-    messageId?: boolean
+    coverImage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "subtitle" | "body" | "imageUrl" | "publishedAt" | "channelId" | "messageId" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
+  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "body" | "coverImage" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
 
   export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Post"
@@ -1156,12 +1078,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
-      subtitle: string
       body: string
-      imageUrl: string | null
-      publishedAt: Date
-      channelId: string
-      messageId: number
+      coverImage: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["post"]>
@@ -1589,12 +1507,8 @@ export namespace Prisma {
   interface PostFieldRefs {
     readonly id: FieldRef<"Post", 'String'>
     readonly title: FieldRef<"Post", 'String'>
-    readonly subtitle: FieldRef<"Post", 'String'>
     readonly body: FieldRef<"Post", 'String'>
-    readonly imageUrl: FieldRef<"Post", 'String'>
-    readonly publishedAt: FieldRef<"Post", 'DateTime'>
-    readonly channelId: FieldRef<"Post", 'String'>
-    readonly messageId: FieldRef<"Post", 'Int'>
+    readonly coverImage: FieldRef<"Post", 'String'>
     readonly createdAt: FieldRef<"Post", 'DateTime'>
     readonly updatedAt: FieldRef<"Post", 'DateTime'>
   }
@@ -1980,12 +1894,8 @@ export namespace Prisma {
   export const PostScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    subtitle: 'subtitle',
     body: 'body',
-    imageUrl: 'imageUrl',
-    publishedAt: 'publishedAt',
-    channelId: 'channelId',
-    messageId: 'messageId',
+    coverImage: 'coverImage',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -2062,20 +1972,6 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
   /**
    * Deep Input Types
    */
@@ -2087,12 +1983,8 @@ export namespace Prisma {
     NOT?: PostWhereInput | PostWhereInput[]
     id?: StringFilter<"Post"> | string
     title?: StringFilter<"Post"> | string
-    subtitle?: StringFilter<"Post"> | string
     body?: StringFilter<"Post"> | string
-    imageUrl?: StringNullableFilter<"Post"> | string | null
-    publishedAt?: DateTimeFilter<"Post"> | Date | string
-    channelId?: StringFilter<"Post"> | string
-    messageId?: IntFilter<"Post"> | number
+    coverImage?: StringNullableFilter<"Post"> | string | null
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
   }
@@ -2100,12 +1992,8 @@ export namespace Prisma {
   export type PostOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    subtitle?: SortOrder
     body?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
-    publishedAt?: SortOrder
-    channelId?: SortOrder
-    messageId?: SortOrder
+    coverImage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2116,12 +2004,8 @@ export namespace Prisma {
     OR?: PostWhereInput[]
     NOT?: PostWhereInput | PostWhereInput[]
     title?: StringFilter<"Post"> | string
-    subtitle?: StringFilter<"Post"> | string
     body?: StringFilter<"Post"> | string
-    imageUrl?: StringNullableFilter<"Post"> | string | null
-    publishedAt?: DateTimeFilter<"Post"> | Date | string
-    channelId?: StringFilter<"Post"> | string
-    messageId?: IntFilter<"Post"> | number
+    coverImage?: StringNullableFilter<"Post"> | string | null
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
   }, "id">
@@ -2129,19 +2013,13 @@ export namespace Prisma {
   export type PostOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    subtitle?: SortOrder
     body?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
-    publishedAt?: SortOrder
-    channelId?: SortOrder
-    messageId?: SortOrder
+    coverImage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PostCountOrderByAggregateInput
-    _avg?: PostAvgOrderByAggregateInput
     _max?: PostMaxOrderByAggregateInput
     _min?: PostMinOrderByAggregateInput
-    _sum?: PostSumOrderByAggregateInput
   }
 
   export type PostScalarWhereWithAggregatesInput = {
@@ -2150,38 +2028,26 @@ export namespace Prisma {
     NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Post"> | string
     title?: StringWithAggregatesFilter<"Post"> | string
-    subtitle?: StringWithAggregatesFilter<"Post"> | string
     body?: StringWithAggregatesFilter<"Post"> | string
-    imageUrl?: StringNullableWithAggregatesFilter<"Post"> | string | null
-    publishedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    channelId?: StringWithAggregatesFilter<"Post"> | string
-    messageId?: IntWithAggregatesFilter<"Post"> | number
+    coverImage?: StringNullableWithAggregatesFilter<"Post"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
   }
 
   export type PostCreateInput = {
-    id: string
+    id?: string
     title: string
-    subtitle: string
     body: string
-    imageUrl?: string | null
-    publishedAt: Date | string
-    channelId: string
-    messageId: number
+    coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PostUncheckedCreateInput = {
-    id: string
+    id?: string
     title: string
-    subtitle: string
     body: string
-    imageUrl?: string | null
-    publishedAt: Date | string
-    channelId: string
-    messageId: number
+    coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2189,12 +2055,8 @@ export namespace Prisma {
   export type PostUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    subtitle?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    channelId?: StringFieldUpdateOperationsInput | string
-    messageId?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2202,25 +2064,17 @@ export namespace Prisma {
   export type PostUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    subtitle?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    channelId?: StringFieldUpdateOperationsInput | string
-    messageId?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostCreateManyInput = {
-    id: string
+    id?: string
     title: string
-    subtitle: string
     body: string
-    imageUrl?: string | null
-    publishedAt: Date | string
-    channelId: string
-    messageId: number
+    coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2228,12 +2082,8 @@ export namespace Prisma {
   export type PostUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    subtitle?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    channelId?: StringFieldUpdateOperationsInput | string
-    messageId?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2241,12 +2091,8 @@ export namespace Prisma {
   export type PostUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    subtitle?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    channelId?: StringFieldUpdateOperationsInput | string
-    messageId?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2292,17 +2138,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -2311,29 +2146,17 @@ export namespace Prisma {
   export type PostCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    subtitle?: SortOrder
     body?: SortOrder
-    imageUrl?: SortOrder
-    publishedAt?: SortOrder
-    channelId?: SortOrder
-    messageId?: SortOrder
+    coverImage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type PostAvgOrderByAggregateInput = {
-    messageId?: SortOrder
   }
 
   export type PostMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    subtitle?: SortOrder
     body?: SortOrder
-    imageUrl?: SortOrder
-    publishedAt?: SortOrder
-    channelId?: SortOrder
-    messageId?: SortOrder
+    coverImage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2341,18 +2164,10 @@ export namespace Prisma {
   export type PostMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    subtitle?: SortOrder
     body?: SortOrder
-    imageUrl?: SortOrder
-    publishedAt?: SortOrder
-    channelId?: SortOrder
-    messageId?: SortOrder
+    coverImage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type PostSumOrderByAggregateInput = {
-    messageId?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2405,22 +2220,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2431,14 +2230,6 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -2480,17 +2271,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2506,6 +2286,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -2548,33 +2339,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
 

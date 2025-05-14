@@ -1,12 +1,10 @@
 export interface Post {
   id: string;
-  title: string;
-  subtitle: string;
-  body: string;
-  imageUrl?: string;
-  publishedAt: number; // Unix timestamp
-  channelId: string;
-  messageId: number;
+  title: string; // Первое предложение до точки
+  body: string;  // Полный текст
+  coverImage?: string; // Опциональное изображение
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface PostPreview {
