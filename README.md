@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Telegram Channel CMS
 
-## Getting Started
+Веб-приложение для управления контентом через Telegram канал. Позволяет публиковать посты в канале и автоматически отображать их на сайте.
 
-First, run the development server:
+## Технологии
 
+- Next.js 14
+- TypeScript
+- Prisma
+- PostgreSQL
+- Telegram Bot API
+
+## Установка
+
+1. Клонируйте репозиторий
+2. Установите зависимости:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Создайте файл `.env`:
+```
+DATABASE_URL="postgresql://username:password@localhost:5432/scrn?schema=public"
+TELEGRAM_BOT_TOKEN="your_bot_token"
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Примените миграции:
+```bash
+npx prisma migrate dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. Запустите приложение:
+```bash
+npm run dev
+```
 
-## Learn More
+## Использование
 
-To learn more about Next.js, take a look at the following resources:
+1. Добавьте бота в канал как администратора
+2. Публикуйте посты в канале с упоминанием бота (@comodapp)
+3. Посты автоматически появятся на сайте
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Разработка
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - запуск в режиме разработки
+- `npm run build` - сборка проекта
+- `npm start` - запуск production версии
