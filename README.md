@@ -1,47 +1,45 @@
-# Telegram Channel CMS
+# Vista Comoda Bot
 
-Веб-приложение для управления контентом через Telegram канал. Позволяет публиковать посты в канале и автоматически отображать их на сайте.
+Telegram бот для канала Vista Comoda с интеграцией Mini App.
 
-## Технологии
+## Текущее состояние
 
-- Next.js 14
-- TypeScript
-- Prisma
-- PostgreSQL
-- Telegram Bot API
+### Структура поста
+- `title`: Первое предложение до точки
+- `body`: Полный текст поста
+- `coverImage`: Опциональное изображение (file_id от Telegram)
+- `createdAt`: Дата создания
+- `updatedAt`: Дата обновления
 
-## Установка
+### Конфигурация
+- Бот: @vistacomoda_bot
+- Mini App URL: https://comodapp.vercel.app
+- База данных: PostgreSQL (Supabase)
 
-1. Клонируйте репозиторий
-2. Установите зависимости:
-```bash
-npm install
-```
+### Реализованный функционал
+1. Webhook для получения сообщений из канала
+2. Автоматическое создание постов из сообщений канала
+3. API для получения постов
+4. Интеграция с Telegram Mini App
 
-3. Создайте файл `.env`:
-```
-DATABASE_URL="postgresql://username:password@localhost:5432/scrn?schema=public"
-TELEGRAM_BOT_TOKEN="your_bot_token"
-```
+### Следующие шаги
+1. Проверить работу webhook'а
+2. Настроить отображение постов в Mini App
+3. Добавить пагинацию для списка постов
+4. Реализовать поиск по постам
 
-4. Примените миграции:
-```bash
-npx prisma migrate dev
-```
+## Установка и запуск
 
-5. Запустите приложение:
-```bash
-npm run dev
-```
+1. Клонировать репозиторий
+2. Установить зависимости: `npm install`
+3. Создать `.env` файл с необходимыми переменными:
+   ```
+   DATABASE_URL=postgresql://...
+   TELEGRAM_BOT_TOKEN=...
+   NEXT_PUBLIC_APP_URL=https://comodapp.vercel.app
+   ```
+4. Запустить миграции: `npx prisma migrate dev`
+5. Запустить в режиме разработки: `npm run dev`
 
-## Использование
-
-1. Добавьте бота в канал как администратора
-2. Публикуйте посты в канале с упоминанием бота (@comodapp)
-3. Посты автоматически появятся на сайте
-
-## Разработка
-
-- `npm run dev` - запуск в режиме разработки
-- `npm run build` - сборка проекта
-- `npm start` - запуск production версии
+## Деплой
+Приложение деплоится на Vercel при пуше в main ветку.
